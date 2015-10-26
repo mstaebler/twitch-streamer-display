@@ -2,35 +2,42 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>A Pen by  Mark Staebler</title>
+    <title>Twitch Api</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <link rel="stylesheet" href="css/reset.css">
 
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 
         <link rel="stylesheet" href="css/style.css">
 
-
-
-
+    
+    
+    
   </head>
 
   <body>
 
-    <div id="twitch">
-      <ul data-bind="foreach: {data: streamerObjects, as: 'streamer' }">
-        <li>
-          <span data-bind="text: streamer.username"></span>
-        </li>
+    <div class="container" ng-app="Streams">
+    <!-- display streams -->
+    <div class="container" ng-controller="PostsCtrl">
+      <ul class="row">
+        <div class="col-sm-2">
+        <li class="float-right" ng-repeat="stream in streams">{{stream}}</li>
+        </div>
+        <div class="col-sm-10">
+        <li class="float-left" ng-repeat="state in status track by $index">{{state[0]}}<a href="{{state[1]}}" target="_blank">{{state[3]}}</a><span id="streamInfo">{{state[2]}}</span></li>
+        </div>
       </ul>
     </div>
-    <script src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js'></script>
+</div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="js/index.js"></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
 
+        <script src="js/index.js"></script>
 
-
-
+    
+    
+    
   </body>
 </html>
